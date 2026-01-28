@@ -1,11 +1,7 @@
 const express = require('express');
 const faker = require('faker');
-const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
-
-app.use(cors()); 
 
 let messages = [];
 let lastFetchedTimestamp = Math.floor(Date.now() / 1000);
@@ -20,14 +16,23 @@ function generateMessage() {
     };
 }
 
-setInterval(() => {
-    const newMessage = generateMessage();
-    messages.push(newMessage);
-    // console.log('New message generated:', newMessage);
-}, 3000);
+function generateMessagesOnDemand() {
+    const now = Math.floor(Date.now() / 1000);
 
-app.get('/messages/unread', (req, res) => {
-    const newMessages = messages.filter(message => message.received > lastFetchedTimestamp);
+    if (now - lastFetchedTimestamp >= 3) {
+        const count = Math.floor((now - lastFetchedTimestamp) / 3);
+        for (let i = 0; i < count; i++) {
+            messages.push(generateMessage());
+        }
+    }
+}
+
+app.get('/api/messages/unread', (req, res) => {
+    generateMessagesOnDemand();
+
+    const newMessages = messages.filter(
+        (m) => m.received > lastFetchedTimestamp
+    );
 
     lastFetchedTimestamp = Math.floor(Date.now() / 1000);
 
@@ -38,7 +43,4 @@ app.get('/messages/unread', (req, res) => {
     });
 });
 
-
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+module.exports = app;
