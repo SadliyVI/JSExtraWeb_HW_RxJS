@@ -4,7 +4,7 @@ import { exhaustMap, retry, catchError, share } from 'rxjs/operators';
 import './styles.css';
 import { renderMessages } from './components/messageTable';
 
-const API_URL = '/api/messages/unread';
+const API_URL = 'https://servermode.vercel.app/api/messages/unread';
 
 const displayedMessages = new Set();
 
