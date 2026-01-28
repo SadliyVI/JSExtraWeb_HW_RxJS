@@ -38,8 +38,9 @@ module.exports = {
         proxy: [
             {
                 context: ['/api'],
-                target: 'http://localhost:3000',
+                target: 'https://servermode.vercel.app',
                 changeOrigin: true,
+                secure: true,
             },
         ],
     },
