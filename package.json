@@ -1,0 +1,26 @@
+{
+    "name": "message-widget",
+    "version": "1.0.0",
+    "description": "A simple message widget using RxJS and Webpack",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "webpack serve --mode development",
+        "build": "webpack --mode production",
+        "server": "node src/api/server.js"
+    },
+    "author": "SadliyVI",
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.6",
+        "rxjs": "^7.8.0"
+    },
+    "devDependencies": {
+        "css-loader": "^6.8.1",
+        "faker": "^5.5.3",
+        "html-webpack-plugin": "^5.5.0",
+        "style-loader": "^3.3.3",
+        "webpack": "^5.88.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.2.3"
+    }
+}
