@@ -6,6 +6,14 @@
             "destination": "https://servermode.vercel.app/api/$1"
         },
         {
+            "source": "/bundle.js",
+            "destination": "/dist/bundle.js"
+        },
+        {
+            "source": "/dist/(.*)",
+            "destination": "/dist/$1"
+        },
+        {
             "source": "/(.*)",
             "destination": "/dist/index.html"
         }
