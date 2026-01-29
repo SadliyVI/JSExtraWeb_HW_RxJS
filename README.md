@@ -10,7 +10,7 @@
 
 ## 🚀 Демо-онлайн фронтенд
 
-[Live demo front](https://servermode.vercel.app/)
+[Live demo front](https://js-extra-web-hw-rx-8nhiqz3qz-sadliyvis-projects.vercel.app/)
 
 ## 🚀 Демо-онлайн бекэнд
 
